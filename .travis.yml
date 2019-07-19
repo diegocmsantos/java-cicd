@@ -1,1 +1,9 @@
 language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk9
+  - openjdk8
+./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+cache:
+  directories:
+  - /home/diego/.m2
