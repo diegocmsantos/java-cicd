@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/diegocmsantos/java-cicd.svg?branch=master)](https://travis-ci.org/diegocmsantos/java-cicd)
 
-# Deploying Spring Boot in Azure VM
+# Deploying Spring Boot to Azure VM
 
 This is a simple project to see how to deploy a Spring Boot project in
 Azure Virtual Machine using maven.
