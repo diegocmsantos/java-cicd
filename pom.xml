@@ -11,6 +11,7 @@
 	<groupId>com.clearbases</groupId>
 	<artifactId>java-cicd-k8s</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>java-cicd-k8s</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -30,16 +31,37 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>${artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.7.0</version>
+				<configuration>
+					<authentication>
+						<serverId>azure-auth</serverId>
+					</authentication>
+					<resourceGroup>basic</resourceGroup>
+					<appName>java-cicd-k8s</appName>
+					<region>westus</region>
+					<linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
